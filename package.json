@@ -1,0 +1,17 @@
+{
+  "name": "metadata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bluebird": "^2.9.27",
+    "glob": "^5.0.10",
+    "lodash": "^3.9.3",
+    "yamljs": "^0.2.3"
+  }
+}

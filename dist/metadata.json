@@ -1,0 +1,310 @@
+{
+  "locations": [
+    {
+      "name": "Catalysts GmbH",
+      "count": 7
+    },
+    {
+      "name": "Netural GmbH",
+      "count": 4
+    },
+    {
+      "name": "Akostart Co-Working Space",
+      "count": 3
+    },
+    {
+      "name": "Dynatrace",
+      "count": 2
+    },
+    {
+      "name": "karriere.at",
+      "count": 2
+    },
+    {
+      "name": "Axis Coworking Loft",
+      "count": 2
+    },
+    {
+      "name": "ePunkt",
+      "count": 2
+    },
+    {
+      "name": "Cyberhouse",
+      "count": 1
+    },
+    {
+      "name": "FH-Hagenberg / HS 6",
+      "count": 1
+    },
+    {
+      "name": "Runtastic",
+      "count": 1
+    },
+    {
+      "name": "Borland",
+      "count": 1
+    },
+    {
+      "name": "smec Smarter Ecommerce",
+      "count": 1
+    },
+    {
+      "name": "Hackerspace Linz DevLoL",
+      "count": 1
+    }
+  ],
+  "speakers": [
+    {
+      "name": "Phil Reither",
+      "count": 9
+    },
+    {
+      "name": "Thomas Einwaller",
+      "count": 7
+    },
+    {
+      "name": "Dominik Hurnaus",
+      "count": 7
+    },
+    {
+      "name": "Hannes Sachsenhofer",
+      "count": 6
+    },
+    {
+      "name": "Stefan Baumgartner",
+      "count": 5
+    },
+    {
+      "name": "Elisabeth Rosemann",
+      "count": 5
+    },
+    {
+      "name": "Manuel Berger",
+      "count": 4
+    },
+    {
+      "name": "Klaus Lehner",
+      "count": 2
+    },
+    {
+      "name": "Paul Klingelhuber",
+      "count": 2
+    },
+    {
+      "name": "Alexander Rosemann",
+      "count": 2
+    },
+    {
+      "name": "Karl-Michael Edlinger",
+      "count": 2
+    },
+    {
+      "name": "Helmut Juskewycz",
+      "count": 2
+    },
+    {
+      "name": "Joachim Sauer",
+      "count": 2
+    },
+    {
+      "name": "Dominik Angerer",
+      "count": 2
+    },
+    {
+      "name": "Erik Rusek",
+      "count": 2
+    },
+    {
+      "name": "Paul Weber",
+      "count": 1
+    },
+    {
+      "name": "Michael Aspetsberger",
+      "count": 1
+    },
+    {
+      "name": "Bernhard Wurm",
+      "count": 1
+    },
+    {
+      "name": "Christina Feilmayr",
+      "count": 1
+    },
+    {
+      "name": "Florian Brunner",
+      "count": 1
+    },
+    {
+      "name": "Harald Vogl",
+      "count": 1
+    },
+    {
+      "name": "Christoph Stichlberger",
+      "count": 1
+    },
+    {
+      "name": "Alexander Floh",
+      "count": 1
+    },
+    {
+      "name": "Attila Jakabfi",
+      "count": 1
+    },
+    {
+      "name": "Thomas Knoll",
+      "count": 1
+    },
+    {
+      "name": "Daniel Khan",
+      "count": 1
+    },
+    {
+      "name": "Wolfgang Gottesheim",
+      "count": 1
+    },
+    {
+      "name": "Christoph Hochstrasser",
+      "count": 1
+    },
+    {
+      "name": "André Steingreß",
+      "count": 1
+    },
+    {
+      "name": "Markus Schmidinger",
+      "count": 1
+    },
+    {
+      "name": "Florian Neumann",
+      "count": 1
+    },
+    {
+      "name": "Tom Profelt",
+      "count": 1
+    },
+    {
+      "name": "Thomas Scheinecker",
+      "count": 1
+    },
+    {
+      "name": "Stefan Schraml",
+      "count": 1
+    },
+    {
+      "name": "Stephan Schober",
+      "count": 1
+    },
+    {
+      "name": "Jakob Leitner",
+      "count": 1
+    },
+    {
+      "name": "Lukas Bischof",
+      "count": 1
+    },
+    {
+      "name": "Stefan Schober",
+      "count": 1
+    },
+    {
+      "name": "Michael Feichtinger",
+      "count": 1
+    },
+    {
+      "name": "David Brunnthaler",
+      "count": 1
+    },
+    {
+      "name": "Ralph Mayr",
+      "count": 1
+    },
+    {
+      "name": "Norbert Kehrer",
+      "count": 1
+    },
+    {
+      "name": "Thomas Fischl",
+      "count": 1
+    },
+    {
+      "name": "Lukas Eder",
+      "count": 1
+    },
+    {
+      "name": "Mike Penz",
+      "count": 1
+    },
+    {
+      "name": "Alexander Feiglstorfer",
+      "count": 1
+    },
+    {
+      "name": "Peter Rietzler",
+      "count": 1
+    },
+    {
+      "name": "Michael Tschernuth",
+      "count": 1
+    },
+    {
+      "name": "Franz Seher",
+      "count": 1
+    },
+    {
+      "name": "Alex Hager",
+      "count": 1
+    },
+    {
+      "name": "Michael Eisler",
+      "count": 1
+    },
+    {
+      "name": "Georg Ringer",
+      "count": 1
+    },
+    {
+      "name": "Arno Huetter",
+      "count": 1
+    },
+    {
+      "name": "Robert Aistleitner",
+      "count": 1
+    },
+    {
+      "name": "Alex Scheran",
+      "count": 1
+    },
+    {
+      "name": "Matthias Grimmer",
+      "count": 1
+    },
+    {
+      "name": "Klaus Muckenhuber",
+      "count": 1
+    },
+    {
+      "name": "Mario Aichlseder",
+      "count": 1
+    },
+    {
+      "name": "Andrzej Kozlowski",
+      "count": 1
+    },
+    {
+      "name": "Thomas Pink",
+      "count": 1
+    },
+    {
+      "name": "Alex Seifert",
+      "count": 1
+    },
+    {
+      "name": "Jürgen Grieshofer",
+      "count": 1
+    },
+    {
+      "name": "Michael Hurnaus",
+      "count": 1
+    }
+  ]
+}
