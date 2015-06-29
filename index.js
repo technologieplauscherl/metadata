@@ -11,27 +11,69 @@ var sortFunc = function(a, b) {
 
 var arrayify = function(key, obj, nju) {
 	return function(el) {
-		nju[key].push({
+		var ob = {
 			name: el,
 			count: obj[key][el].count
-		});
+		};
+
+		if(obj[key][el].img) {
+			ob.img = obj[key][el].img;
+		}
+
+		if(obj[key][el].pos) {
+			ob.pos = obj[key][el].pos;
+		}
+
+		nju[key].push(ob);
 	}
 };
 
 var objectify = function(key, nju) {
 	return function(el) {
-		nju[key][el.name] = nju[key][el.name] || { count: 0 }
+		nju[key][el.name] = nju[key][el.name] || { count: 0 };
+		nju[key][el.name].img = nju[key][el.name].img || el.img;
 		nju[key][el.name].count ++;
 	}
 };
 
+var mapify = function(map) {
+	if(map) {
+		var res = /.*#.*\/(.*)\/(.*)/.exec(map);
+		if(res.length > 2) {
+			return {
+				lat: parseFloat(res[1]),
+				lng: parseFloat(res[2])
+			}
+		}
+	}
+	return undefined;
+}
+
 var mergify = function(property, metadata, mergeFile) {
 	return function(key) {
+		var img = mergeFile[property][key].map(function(el) {
+			if(metadata[property][el] && metadata[property][el].img) {
+				return metadata[property][el].img;
+			}
+		})
+		.reduce(function(prev, curr) {
+			return curr || prev;
+		});
+
+		var pos = mergeFile[property][key].map(function(el) {
+			if(metadata[property][el] && metadata[property][el].pos) {
+				return metadata[property][el].pos;
+			}
+		})
+		.reduce(function(prev, curr) {
+			return curr || prev;
+		});
+
 		var count = mergeFile[property][key].map(function(el) {
 			if(metadata[property][el]) {
 				var count = metadata[property][el].count;
 				delete metadata[property][el];
-				return count;	
+				return count;
 			}
 			return 0;
 		})
@@ -39,7 +81,7 @@ var mergify = function(property, metadata, mergeFile) {
 			return prev + curr;
 		});
 
-		metadata[property][key] = { count: count || 1 };
+		metadata[property][key] = { count: count || 1, img: img, pos: pos };
 	}
 };
 
@@ -56,9 +98,12 @@ glob('../technologieplauscherl.github.io/_posts/**/*.html')
 		metadata.locations = {};
 		metadata.speakers = {};
 		results.forEach(function(el) {
-			metadata.locations[el.location.name] = 
-				metadata.locations[el.location.name] || { count: 0 };
-			metadata.locations[el.location.name].count++;
+			var id = el.location.name;
+
+			metadata.locations[id] = metadata.locations[id] || { count: 0 };
+			metadata.locations[id].count++;
+			metadata.locations[id].pos = el.location.oldmap
+				|| metadata.locations[id].pos || mapify(el.location.map) || {};
 
 			el.speakers.forEach(objectify('speakers', metadata));
 		})
