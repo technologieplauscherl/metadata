@@ -85,7 +85,7 @@ var mergify = function(property, metadata, mergeFile) {
 	}
 };
 
-glob('../technologieplauscherl.github.io/_posts/**/*.html')
+glob('../technologieplauscherl.github.io/_plauscherl/**/*.html')
 	.map(function(file) {
 		return fs.readFileAsync(file);
 	})

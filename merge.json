@@ -11,7 +11,8 @@
 		"Emmanuel Helm": ["Phil Reither & Jason Tevnan & Emmanuel Helm"]
 	},
 	"locations": {
-		"Dynatrace" : ["Dynatrace", "Compuware GmbH (ehem. Dynatrace)"]
+		"Dynatrace" : ["Dynatrace", "Compuware GmbH (ehem. Dynatrace)"],
+		"smec": ["smec - Smarter Ecommerce", "smec Smarter Ecommerce"]
 	}
 
 }
