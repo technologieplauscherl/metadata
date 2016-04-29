@@ -5,10 +5,13 @@
 		"Thomas Pink" : ["Thomas Pink", "Thomas Pink & Dominik Angerer"],
 		"Erik Rusek" : ["Erik Rusek und Jürgen Grieshofer", "Florian Brunner, Erik Rusek", "Erik Rusek"],
 		"Jürgen Grieshofer" : ["Erik Rusek und Jürgen Grieshofer", "Jürgen Grieshofer"],
-		"Florian Brunner" : ["Florian Brunner, Erik Rusek", "Florian Brunner"]
+		"Florian Brunner" : ["Florian Brunner, Erik Rusek", "Florian Brunner"],
+		"Phil Reither": ["Phil Reither & Jason Tevnan & Emmanuel Helm"],
+		"Jason Tevnan": ["Phil Reither & Jason Tevnan & Emmanuel Helm"],
+		"Emmanuel Helm": ["Phil Reither & Jason Tevnan & Emmanuel Helm"]
 	},
 	"locations": {
 		"Dynatrace" : ["Dynatrace", "Compuware GmbH (ehem. Dynatrace)"]
 	}
-	
+
 }
