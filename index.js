@@ -73,7 +73,7 @@ const mergify = (property, metadata, mergeFile) => key => {
 
 glob('../technologieplauscherl.github.io/_plauscherl/**/*.html')
   .map(file => fs.readFileAsync(file))
-  .map(result) => result.toString().split('---')[1])
+  .map(result => result.toString().split('---')[1])
   .map(yaml.parse)
   .then(results => {
     const metadata = {};
