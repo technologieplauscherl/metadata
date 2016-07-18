@@ -1,44 +1,38 @@
-var Promise = require('bluebird');
-var fs = Promise.promisifyAll(require('fs'));
-var yaml = Promise.promisifyAll(require('yamljs'));
-var glob = Promise.promisify(require('glob'));
-var _ = require('lodash');
-var mergeFile = require('./merge.json');
+const Promise = require('bluebird');
+const fs = Promise.promisifyAll(require('fs'));
+const yaml = Promise.promisifyAll(require('yamljs'));
+const glob = Promise.promisify(require('glob'));
+const _ = require('lodash');
+const mergeFile = require('./merge.json');
 
-var sortFunc = function(a, b) {
-  return b.count - a.count;
-};
+const sortFunc = (a, b) => b.count - a.count;
 
-var arrayify = function(key, obj, nju) {
-  return function(el) {
-    var ob = {
-      name: el,
-      count: obj[key][el].count
-    };
+const arrayify = (key, obj, nju) => el => {
+  const ob = {
+    name: el,
+    count: obj[key][el].count
+  };
 
-    if(obj[key][el].img) {
-      ob.img = obj[key][el].img;
-    }
-
-    if(obj[key][el].pos) {
-      ob.pos = obj[key][el].pos;
-    }
-
-    nju[key].push(ob);
+  if(obj[key][el].img) {
+    ob.img = obj[key][el].img;
   }
-};
 
-var objectify = function(key, nju) {
-  return function(el) {
-    nju[key][el.name] = nju[key][el.name] || { count: 0 };
-    nju[key][el.name].img = nju[key][el.name].img || el.img;
-    nju[key][el.name].count ++;
+  if(obj[key][el].pos) {
+    ob.pos = obj[key][el].pos;
   }
+
+  nju[key].push(ob);
 };
 
-var mapify = function(map) {
+const objectify = (key, nju) => el => {
+  nju[key][el.name] = nju[key][el.name] || { count: 0 };
+  nju[key][el.name].img = nju[key][el.name].img || el.img;
+  nju[key][el.name].count ++;
+};
+
+const mapify = (map) => {
   if(map) {
-    var res = /.*#.*\/(.*)\/(.*)/.exec(map);
+    const res = /.*#.*\/(.*)\/(.*)/.exec(map);
     if(res.length > 2) {
       return {
         lat: parseFloat(res[1]),
@@ -49,56 +43,44 @@ var mapify = function(map) {
   return undefined;
 }
 
-var mergify = function(property, metadata, mergeFile) {
-  return function(key) {
-    var img = mergeFile[property][key].map(function(el) {
-      if(metadata[property][el] && metadata[property][el].img) {
-        return metadata[property][el].img;
-      }
-    })
-    .reduce(function(prev, curr) {
-      return curr || prev;
-    });
+const mergify = (property, metadata, mergeFile) => key => {
+  const img = mergeFile[property][key].map(el => {
+    if(metadata[property][el] && metadata[property][el].img) {
+      return metadata[property][el].img;
+    }
+  })
+  .reduce((prev, curr) => curr || prev);
 
-    var pos = mergeFile[property][key].map(function(el) {
-      if(metadata[property][el] && metadata[property][el].pos) {
-        return metadata[property][el].pos;
-      }
-    })
-    .reduce(function(prev, curr) {
-      return curr || prev;
-    });
+  const pos = mergeFile[property][key].map(el => {
+    if(metadata[property][el] && metadata[property][el].pos) {
+      return metadata[property][el].pos;
+    }
+  })
+  .reduce((prev, curr) => curr || prev);
 
-    var count = mergeFile[property][key].map(function(el) {
-      if(metadata[property][el]) {
-        var count = metadata[property][el].count;
-        delete metadata[property][el];
-        return count;
-      }
-      return 0;
-    })
-    .reduce(function(prev, curr) {
-      return prev + curr;
-    });
+  const count = mergeFile[property][key].map(el => {
+    if(metadata[property][el]) {
+      const count = metadata[property][el].count;
+      delete metadata[property][el];
+      return count;
+    }
+    return 0;
+  })
+  .reduce((prev, curr) => prev + curr);
 
-    metadata[property][key] = { count: count || 1, img: img, pos: pos };
-  }
+  metadata[property][key] = { count: count || 1, img: img, pos: pos };
 };
 
 glob('../technologieplauscherl.github.io/_plauscherl/**/*.html')
-  .map(function(file) {
-    return fs.readFileAsync(file);
-  })
-  .map(function(result) {
-    return result.toString().split('---')[1];
-  })
+  .map(file => fs.readFileAsync(file))
+  .map(result) => result.toString().split('---')[1])
   .map(yaml.parse)
-  .then(function(results) {
-    var metadata = {};
+  .then(results => {
+    const metadata = {};
     metadata.locations = {};
     metadata.speakers = {};
-    results.forEach(function(el) {
-      var id = el.location.name;
+    results.forEach((el) => {
+      const id = el.location.name;
 
       metadata.locations[id] = metadata.locations[id] || { count: 0 };
       metadata.locations[id].count++;
@@ -109,28 +91,26 @@ glob('../technologieplauscherl.github.io/_plauscherl/**/*.html')
     })
     return metadata;
   })
-  .then(function(metadata) {
+  .then(metadata => {
     Object.keys(mergeFile.speakers).forEach(mergify('speakers', metadata, mergeFile));
     Object.keys(mergeFile.locations).forEach(mergify('locations', metadata, mergeFile));
     return metadata;
   })
-  .then(function(metadata) {
+  .then(metadata => {
     var all = { locations: [], speakers: [] };
     Object.keys(metadata.locations).forEach(arrayify('locations', metadata, all));
     Object.keys(metadata.speakers).forEach(arrayify('speakers', metadata, all));
     return all;
   })
-  .then(function(all) {
+  .then(all => {
     all.locations.sort(sortFunc);
     all.speakers.sort(sortFunc);
     return all;
   })
-  .then(function (all) {
+  .then(all => {
     console.log(all);
     console.log('Speakers', all.speakers.length);
     console.log('Locations', all.locations.length);
     return fs.writeFileAsync('dist/metadata.json', JSON.stringify(all, null, '  '));
   })
-  .then(function() {
-    console.log('Done');
-  });;
+  .then(() => console.log('Done'));
