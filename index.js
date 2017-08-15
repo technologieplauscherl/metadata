@@ -64,7 +64,7 @@ const mergify = (property, metadata, mergeFile) => key => {
       delete metadata[property][el];
       return count;
     }
-    return 0;
+    return 1;
   })
   .reduce((prev, curr) => prev + curr);
 
