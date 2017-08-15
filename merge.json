@@ -9,11 +9,11 @@
 		"Phil Reither": ["Phil Reither", "Phil Reither & Jason Tevnan & Emmanuel Helm", "Das Plauscherl"],
 		"Jason Tevnan": ["Phil Reither & Jason Tevnan & Emmanuel Helm"],
 		"Emmanuel Helm": ["Phil Reither & Jason Tevnan & Emmanuel Helm"],
-    "Stefan Baumgartner": ["Das Plauscherl"],
-    "Dominik Hurnaus": ["Das Plauscherl"],
-    "Hannes Sachsenhofer": ["Das Plauscherl"],
-    "Alexander Rosemann": ["Das Plauscherl"],
-    "Thomas Einwaller": ["Das Plauscherl"]
+    "Stefan Baumgartner": ["Stefan Baumgartner", "Das Plauscherl"],
+    "Dominik Hurnaus": ["Dominik Hurnaus", "Das Plauscherl"],
+    "Hannes Sachsenhofer": ["Das Plauscherl", "Hannes Sachsenhofer"],
+    "Alexander Rosemann": ["Alexander Rosemann", "Das Plauscherl"],
+    "Thomas Einwaller": ["Thomas Einwaller", "Das Plauscherl"]
 	},
 	"locations": {
 		"Dynatrace" : ["Dynatrace", "Compuware GmbH (ehem. Dynatrace)"],
