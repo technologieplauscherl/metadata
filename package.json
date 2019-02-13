@@ -11,7 +11,7 @@
   "devDependencies": {
     "bluebird": "^2.9.27",
     "glob": "^5.0.10",
-    "lodash": ">=4.17.11"
+    "lodash": ">=4.17.11",
     "yamljs": "^0.2.3"
   }
 }
